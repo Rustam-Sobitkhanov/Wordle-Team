@@ -35,11 +35,15 @@ app.post('/signup/:username/:password', async (req, res) => {
     const hash = await bcrypt.hash(password, salt);
 
     try {
-        const user = new User({ username, password: hash });
-        await user.save();
+
+	
+	const user = new User({ username, password: hash });
+        console.log(user);
+	await user.save();
         res.status(201).send('User created');
     } catch (error) {
-        res.status(500).send('Error creating user');
+        console.log(error);
+	res.status(500).send('Error creating user');
     }
 });
 

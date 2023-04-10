@@ -25,6 +25,7 @@ app.use(express.json());
 
 app.post('/signup/:username/:password', async (req, res) => {
     const { username, password } = req.params;
+    console.log(username, password);
 
     if (!username || !password) {
         return res.status(400).send('Username and password are required');
@@ -104,6 +105,6 @@ app.post('/updateScore/:username/:score', async (req, res) => {
     }
 });
 
-app.listen(3000, () => {
-    console.log('Server listening on port 3000');
+app.listen(80, () => {
+    console.log('Server listening on port 80');
 });
